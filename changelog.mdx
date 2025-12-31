@@ -1,0 +1,156 @@
+---
+title: Changelog
+description: Track the latest updates, improvements, and fixes released for Андреев Иван.
+---
+
+## Overview
+
+Stay updated with the latest releases of Андреев Иван. You receive new features, performance improvements, and bug fixes regularly. Check this page for detailed release notes, including code examples for breaking changes and new APIs.
+
+<Columns cols={3}>
+  <Card title="v1.2.0" icon="zap" href="#v1-2-0">
+    Latest release with collaboration features.
+  </Card>
+  <Card title="v1.1.0" icon="trending-up" href="#v1-1-0">
+    Performance and UI enhancements.
+  </Card>
+  <Card title="v1.0.0" icon="rocket" href="#v1-0-0">
+    Initial stable release.
+  </Card>
+</Columns>
+
+## Recent Releases
+
+<Update id="v1-2-0" label="2024-10-15" description="v1.2.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Added real-time collaboration for documents using WebSockets.
+- Introduced version history with diff viewer.
+
+## Improvements
+
+- Enhanced search with fuzzy matching and filters.
+
+## Bug Fixes
+
+- Fixed rendering issues with tables containing `{special characters}`.
+- Resolved authentication errors when using `YOUR_API_KEY`.
+
+**Example: New collaboration API**
+
+<CodeGroup tabs="JavaScript,Python">
+  ```javascript
+  const collab = await api.startCollaboration('doc-id', { userId: 'user123' });
+  collab.onUpdate((changes) => console.log(changes));
+  ```
+  ```python
+  collab = api.start_collaboration('doc-id', user_id='user123')
+  collab.on_update(print)
+  ```
+</CodeGroup>
+
+</Update>
+
+<Update id="v1-1-0" label="2024-09-20" description="v1.1.0" tags={["improvement", "feature"]}>
+
+## New Features
+
+- Dark mode toggle with automatic system preference detection.
+- Export to PDF and Markdown formats.
+
+## Improvements
+
+- Reduced bundle size by 30% through tree-shaking.
+- Faster initial load times `<100ms`.
+
+## Breaking Changes
+
+- Updated config format from `{old: value}` to `newConfig.value`.
+
+**Migration Example**
+
+````jsx
+<CodeGroup tabs="Before,After">
+  ```javascript
+  // Before
+  config = { apiKey: 'YOUR_API_KEY' };
+  ```
+  ```javascript
+  // After
+  config = { credentials: { apiKey: 'YOUR_API_KEY' } };
+  ```
+</CodeGroup>
+````
+
+</Update>
+
+<Update id="v1-0-0" label="2024-08-10" description="v1.0.0" tags={["feature", "breaking"]}>
+
+## New Features
+
+- Core documentation editor with Markdown and MDX support.
+- API integration at `https://api.example.com/v1/docs`.
+
+## Initial Setup
+
+<Steps>
+  <Step title="Install" icon="download">
+    
+    ```bash
+    npm install andrejev-ivan
+    ```
+    
+  </Step>
+  <Step title="Initialize" icon="settings">
+    
+    ```bash
+    npx andrejev init
+    ```
+    
+  </Step>
+</Steps>
+
+</Update>
+
+## Upcoming Changes
+
+<Callout kind="info">
+
+Preview of v1.3.0 (expected November 2024):
+
+- AI-powered content suggestions.
+- Webhook support for `https://your-webhook-url.com/webhook`.
+- Mobile app preview.
+
+Watch this space for beta access.
+
+</Callout>
+
+<ExpandableGroup>
+  <Expandable title="How to Enable Beta Features" default-open="true">
+
+    Add `beta: true` to your config file:
+
+    
+    ```json
+    {
+      "beta": true,
+      "features": ["ai-suggestions"]
+    }
+    ```
+    
+
+  </Expandable>
+  <Expandable title="Contributing to Releases">
+
+    Fork the repo, create a PR with changelog entry.
+
+  </Expandable>
+</ExpandableGroup>
+
+<Callout kind="tip">
+
+Subscribe to RSS feed or GitHub notifications for instant updates. Check [Quickstart](/quickstart) for upgrade instructions.
+
+</Callout>
